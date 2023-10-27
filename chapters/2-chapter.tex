@@ -1,0 +1,33 @@
+% ----------------------------------------------------------
+\chapter{Análise gráfica}\label{cap:analise_grafica}
+% ----------------------------------------------------------
+\section{Linearização}
+Tomando a equação horária da posição do movimento retilíneo uniforme
+\begin{equation}\label{eq: funcao_horaria}
+    x(t) = x_0 + v_x t
+\end{equation}
+
+Estamos interessados em tomar $t$ como variável dependente e $x$ como variável independente. Isolando t na \autoref{eq: funcao_horaria} temos
+\begin{equation*}
+    t = \frac{1}{v_x}x - \frac{x_0}{v_x}
+\end{equation*}
+
+Conseguimos então linearizar com uma equação da forma $Y = A + BX$ tomando
+\begin{equation}\label{eq: linearizacao}
+    t = \frac{1}{v_x}x - \frac{x_0}{v_x} \Rightarrow \left\{ \begin{array}{ll}
+        Y = t &  \\
+        X = x &  \\
+        A = -\frac{x_0}{v_x} & \\
+        B = \frac{1}{v_x}
+    \end{array}\right.
+\end{equation}
+
+\section{Gráfico}
+Com o auxílio do programa SciDAVis podemos plotar os dados da \autoref{table:experimento1} e obter a regressão linear com os respectivos coeficientes linear ($A = -0,629 \pm 0,0332712893656291$) e angular ($B =  0,0208848484848485 \pm 0,000288770195295941$) e seus erros, explicitado na \autoref{fig:grafico}.
+\begin{figure}[htb]
+	\caption{\label{fig:grafico}Gráfico do tempo em função do deslocamento}
+	\begin{center}
+		\includegraphics[width=10cm]{images/experimento5_grafico.png}
+	\end{center}
+	\fonte{Autoral.}
+\end{figure}

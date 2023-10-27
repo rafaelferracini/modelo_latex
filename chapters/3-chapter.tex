@@ -1,0 +1,119 @@
+% ----------------------------------------------------------
+\chapter{Questionário}\label{cap:questionario}
+% ----------------------------------------------------------
+
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item \textbf{A partir dos valores obtidos para os parâmetros da melhor reta, determine os valores experimentais de $x_0$ e de $v_x$, com suas respectivas unidades de medida.} 
+        
+        Utilizando a linearização obtida na \autoref{eq: linearizacao}, com o coeficiente angular (B) podemos obter o valor de $v_x$.
+        \begin{equation}\label{eq:vx}
+            v_x = \frac{1}{B} \therefore v_x = 47,8816018572257343 \frac{cm}{s}
+        \end{equation}
+
+        O valor para $x_0$ podemos obter a partir do coeficiente linear A.
+        \begin{equation}\label{eq:x0}
+            x_0 = -A v_x \therefore x_0 = 30,1175275681949868 cm
+        \end{equation}
+
+        \item \textbf{ Com o auxílio do computador, determine o erro no parâmetro angular B, e através deste o erro na velocidade $v_x$}
+
+        Para obter o valor do erro, usamos as expressões para $v_x$ e $x_0$ obtida na \autoref{eq:vx} e \autoref{eq:x0}.
+
+        Para $dv_x$ temos:
+
+        \begin{align}
+            dv_x &= \left\| \frac{\partial v_x}{\partial B}\right\| dB = \left\|\frac{\partial}{\partial B} \left(\frac{1}{B}\right)\right\| dB = \frac{1}{B^2} dB \\
+            \therefore dv_x &= 0,6620483519152457 \frac{cm}{s}
+        \end{align}
+
+        \begin{equation}
+            \therefore v_x = \left(47,9 \pm 0,7 \right) \frac{cm}{s}
+        \end{equation}
+
+        \item \textbf{O valor de $x_0$ era o esperado? Justifique sua resposta.}\\
+        Sim, é um valor esperado. O valor $x_0 \approx 30,12$ deu muito próximo do que no experimento foi tomado como posição inicial para o primeiro detector.
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}
+        \item \textbf{Por que razão costumamos dizer que, na prática, é difícil obtermos um movimento retilíneo uniforme?} \\
+        Um dos motivos é a dificuldade de isolar um sistema de forças externas. Forças de ação a distâncias não podem ser restringidas por nenhum tipo de barreira; forças dissipativas (resistência do ar, atrito) estão presentes em quaisquer equipamentos; condições ambiente também podem alterar os resultados.
+        
+
+        \item \textbf{Cite um exemplo da vida real em que o movimento pode ser considerado movimento retilíneo uniformes.}\\
+        Um satélite orbitando em volta da Terra (como sistema de GPS, analises climáticas); uma gota de chuva ao atingir velocidade terminal
+    \end{enumerate}
+
+    \item 
+    \begin{enumerate}
+        \item \textbf{Com base nos dados constantes na tabela referente à Parte II de suas medidas, calcule a velocidade do carrinho com o respectivo erro propagado. Lembre-se que, no caso da medida do comprimento da bandeirola, consideramos apenas o erro de escala, mas na medida do tempo devemos considerar não apenas este último como também o erro aleatório} \\
+
+        \begin{enumerate}
+            \item Calculando primeiro a expressão para a velocidade e seu erro
+            Sabemos da cinemática que
+            \begin{equation} \label{eq: v_med}
+                v_{carro} = \frac{x}{t}
+            \end{equation}
+    
+            Pela teoria de propagação de erro, o erro dessa operação será dado por
+            \begin{equation*}
+                dv = \left\| \frac{\partial v}{\partial x}\right\| dx + \left\| \frac{\partial v}{\partial t}\right\| dt 
+            \end{equation*}
+            \begin{equation} \label{eq:erro_vmed}
+                \therefore dv = \frac{1}{t} dx + \frac{x}{t^2} dt
+            \end{equation}
+
+            \item Calcular o tempo médio medido
+
+            \begin{equation}
+                \bar{t} = \frac{0,222 + 0,210 + 0,205 + 0,215 + 0,218}{5} \therefore \bar{t} = 0,214s
+            \end{equation}
+
+            \item Calcular o Desvio Padrão 
+
+            \begin{equation}
+                \sigma = \sqrt{\frac{\sum_{i=1}^N \left(t_i - \bar{t}\right)^2 }{N}} \therefore \sigma = 0,005967s
+            \end{equation}
+
+            \item Calcular o Erro Aleatório Provável
+            \begin{equation}
+                \sigma_{med} = \frac{\sigma}{\sqrt{N}} \therefore \sigma_{med} = 0,002983s
+            \end{equation}
+
+            \item O erro da medição de $dx$ é apenas o erro de aparelho 
+            \begin{equation}
+                \label{eq:dx}
+                \therefore dx = \pm 0,005cm
+            \end{equation}
+            
+            Calcular o erro total do tempo ($E_{tot} = dt = \sigma_{med} + E_{equip}$)
+            \begin{equation}
+                \label{eq:dt}
+                \therefore dt = \pm 0,003983s
+            \end{equation}
+
+            \item Com dos dados da \autoref{eq:dx} e \autoref{eq:dt}, juntando com as expressões da \autoref{eq: v_med} e \autoref{eq:erro_vmed} temos
+
+            \begin{equation*}
+                v = \frac{x}{\bar{t}} \pm dv
+            \end{equation*}
+            \begin{equation}
+                \therefore v = \left(46,6 \pm 0,9\right) \frac{cm}{s}
+            \end{equation}
+            
+        \end{enumerate}
+
+        \item \textbf{Compare o valor da velocidade do carrinho que você obteve no item anterior desta questão com o valor obtido na questão 1(a). Eles podem ser considerados iguais? Comente.} \\
+
+        Os valores medidos foram
+        \begin{align*}
+            v_1 &= \left(47,9 \pm 0,7 \right) \frac{cm}{s} \\
+            v_2 &= \left(46,6 \pm 0,9\right) \frac{cm}{s}\\
+        \end{align*}
+
+        Considerando ambos os valores podem estar sobrepostos dada a concordância dos erros. Então sim, elas podem ser consideradas uma aproximação boa de velocidade. 
+        
+    \end{enumerate}
+\end{enumerate}
